@@ -36,8 +36,8 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtmFecha = new System.Windows.Forms.DateTimePicker();
             this.lblKg = new System.Windows.Forms.Label();
-            this.txtKg = new System.Windows.Forms.TextBox();
             this.btnCargarDatos = new System.Windows.Forms.Button();
+            this.mtxtb = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblVentas
@@ -110,13 +110,6 @@
             this.lblKg.TabIndex = 7;
             this.lblKg.Text = "Peso (kg):";
             // 
-            // txtKg
-            // 
-            this.txtKg.Location = new System.Drawing.Point(22, 408);
-            this.txtKg.Name = "txtKg";
-            this.txtKg.Size = new System.Drawing.Size(203, 20);
-            this.txtKg.TabIndex = 8;
-            // 
             // btnCargarDatos
             // 
             this.btnCargarDatos.Location = new System.Drawing.Point(102, 457);
@@ -126,13 +119,22 @@
             this.btnCargarDatos.Text = "Cargar";
             this.btnCargarDatos.UseVisualStyleBackColor = true;
             // 
+            // mtxtb
+            // 
+            this.mtxtb.Location = new System.Drawing.Point(22, 414);
+            this.mtxtb.Mask = "99999";
+            this.mtxtb.Name = "mtxtb";
+            this.mtxtb.Size = new System.Drawing.Size(204, 20);
+            this.mtxtb.TabIndex = 10;
+            this.mtxtb.ValidatingType = typeof(int);
+            // 
             // FrmCargarD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(270, 500);
+            this.Controls.Add(this.mtxtb);
             this.Controls.Add(this.btnCargarDatos);
-            this.Controls.Add(this.txtKg);
             this.Controls.Add(this.lblKg);
             this.Controls.Add(this.dtmFecha);
             this.Controls.Add(this.lblFecha);
@@ -160,7 +162,7 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.DateTimePicker dtmFecha;
         private System.Windows.Forms.Label lblKg;
-        private System.Windows.Forms.TextBox txtKg;
         private System.Windows.Forms.Button btnCargarDatos;
+        private System.Windows.Forms.MaskedTextBox mtxtb;
     }
 }
