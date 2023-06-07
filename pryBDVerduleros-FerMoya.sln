@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pryBDVerduleros-FerMoya", "pryBDVerduleros-FerMoya\pryBDVerduleros-FerMoya.csproj", "{4F64F6C0-1C41-49CE-ACAF-523682D2F77E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F64F6C0-1C41-49CE-ACAF-523682D2F77E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F64F6C0-1C41-49CE-ACAF-523682D2F77E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F64F6C0-1C41-49CE-ACAF-523682D2F77E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F64F6C0-1C41-49CE-ACAF-523682D2F77E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAF89D58-BA63-4313-897D-AEB61BF88583}
+	EndGlobalSection
+EndGlobal
