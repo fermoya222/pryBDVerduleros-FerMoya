@@ -12,12 +12,12 @@ namespace pryBDVerduleros_FerMoya
 {
     internal class Class1
     {
-        public partial class FrmVerduleria : Form
-        {
+        
             OleDbCommand Micommand;
             OleDbConnection Miconnection;
             OleDbDataReader Reader;
 
+            string CadenaDeConexion;
           
 
             private void FrmVerduleria_Load(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace pryBDVerduleros_FerMoya
 
             }
 
-            private void btnCargar_Click(object sender, EventArgs, DataGridView dgv 
+            private void MostrarTabla (object sender, DataGridView dgv, EventArgs e)
             {
                 try
                 {
@@ -54,12 +54,67 @@ namespace pryBDVerduleros_FerMoya
 
                     }
                 }
-                catch
-                {
-                }
+                catch { }
             }
 
-        }
+            public void ConectarBD()
+            {
+                CadenaDeConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=VERDULEROS.mdb;";
+
+                try
+                {
+                    Miconnection = new OleDbConnection(CadenaDeConexion);
+                    Miconnection.ConnectionString = CadenaDeConexion;
+                    Miconnection.Open();
+
+                    //MessageBox.Show("exito");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            public void CargarCmb(ComboBox cmbVendedor)
+            {
+                Micommand = new OleDbCommand();
+
+                Micommand.Connection = Miconnection;
+                Micommand.CommandType = System.Data.CommandType.TableDirect;
+                Micommand.CommandText = "Vendedores";
+
+                Reader = Micommand.ExecuteReader();
+
+                cmbVendedor.Items.Clear();
+
+                while (Reader.Read())
+                {
+            //ExecuteReader: la propiedad Connection no se ha inicializado.'
+
+                    cmbVendedor.Items.Add(Reader.GetString(1));
+                }
+
+                Reader.Close();
+
+            }
+            public void CargarCmbP (ComboBox cmbProducto)
+            {
+                Micommand.Connection = Miconnection;
+                Micommand.CommandType = System.Data.CommandType.TableDirect;
+                Micommand.CommandText = "Productos";
+
+                Reader = Micommand.ExecuteReader();
+
+                cmbProducto.Items.Clear();
+
+                while (Reader.Read())
+                {
+                    cmbProducto.Items.Add(Reader.GetString(1));
+                }
+
+                Reader.Close();
+
+            }
+        
     }
 }
                 

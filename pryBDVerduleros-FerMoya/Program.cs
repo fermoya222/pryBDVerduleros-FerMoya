@@ -16,7 +16,7 @@ namespace pryBDVerduleros_FerMoya
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmVerduleria());
+            Application.Run(new FrmCargarD());
         }
     }
 }

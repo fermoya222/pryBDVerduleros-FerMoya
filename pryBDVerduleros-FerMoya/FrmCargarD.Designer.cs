@@ -37,6 +37,7 @@
             this.dtmFecha = new System.Windows.Forms.DateTimePicker();
             this.lblKg = new System.Windows.Forms.Label();
             this.txtKg = new System.Windows.Forms.TextBox();
+            this.btnCargarDatos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblVentas
@@ -116,11 +117,21 @@
             this.txtKg.Size = new System.Drawing.Size(203, 20);
             this.txtKg.TabIndex = 8;
             // 
+            // btnCargarDatos
+            // 
+            this.btnCargarDatos.Location = new System.Drawing.Point(102, 457);
+            this.btnCargarDatos.Name = "btnCargarDatos";
+            this.btnCargarDatos.Size = new System.Drawing.Size(57, 21);
+            this.btnCargarDatos.TabIndex = 9;
+            this.btnCargarDatos.Text = "Cargar";
+            this.btnCargarDatos.UseVisualStyleBackColor = true;
+            // 
             // FrmCargarD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(270, 500);
+            this.Controls.Add(this.btnCargarDatos);
             this.Controls.Add(this.txtKg);
             this.Controls.Add(this.lblKg);
             this.Controls.Add(this.dtmFecha);
@@ -133,6 +144,7 @@
             this.ForeColor = System.Drawing.Color.OliveDrab;
             this.Name = "FrmCargarD";
             this.Text = "FrmCargarD";
+            this.Load += new System.EventHandler(this.FrmCargarD_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +161,6 @@
         private System.Windows.Forms.DateTimePicker dtmFecha;
         private System.Windows.Forms.Label lblKg;
         private System.Windows.Forms.TextBox txtKg;
+        private System.Windows.Forms.Button btnCargarDatos;
     }
 }
