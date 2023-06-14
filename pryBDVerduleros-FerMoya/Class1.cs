@@ -20,17 +20,7 @@ namespace pryBDVerduleros_FerMoya
             string CadenaDeConexion;
           
 
-            private void FrmVerduleria_Load(object sender, EventArgs e)
-            {
-                Miconnection = new OleDbConnection();
-
-                Miconnection.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=VERDULEROS.mdb";
-
-                Miconnection.Open();
-
-
-
-            }
+            
 
             private void MostrarTabla (object sender, DataGridView dgv, EventArgs e)
             {
@@ -85,15 +75,21 @@ namespace pryBDVerduleros_FerMoya
                 Reader = Micommand.ExecuteReader();
 
                 cmbVendedor.Items.Clear();
+                DataTable dt = new DataTable();
 
-                while (Reader.Read())
+                if (Reader.HasRows)
                 {
-            //ExecuteReader: la propiedad Connection no se ha inicializado.'
+                    dt.Load(Reader);
+                    cmbVendedor.DataSource = dt;
+                    cmbVendedor.ValueMember = "IdVendedor";
+                    cmbVendedor.DisplayMember = "NomVendedor";
 
-                    cmbVendedor.Items.Add(Reader.GetString(1));
+
                 }
 
                 Reader.Close();
+
+            
 
             }
             public void CargarCmbP (ComboBox cmbProducto)
@@ -103,17 +99,45 @@ namespace pryBDVerduleros_FerMoya
                 Micommand.CommandText = "Productos";
 
                 Reader = Micommand.ExecuteReader();
-
+                DataTable dt = new DataTable();
                 cmbProducto.Items.Clear();
 
-                while (Reader.Read())
+                if (Reader.HasRows)
                 {
-                    cmbProducto.Items.Add(Reader.GetString(1));
+                    dt.Load(Reader);
+                    cmbProducto.DataSource = dt;
+                    cmbProducto.ValueMember = "IdProducto";
+                    cmbProducto.DisplayMember = "NomProducto";
+
+
                 }
 
                 Reader.Close();
 
             }
+        public void RegistrarVentas(string vendedor, string producto,DateTime FechaVenta,string kilos)
+        {
+            try
+            {
+                Micommand.Connection = Miconnection;
+                Micommand.CommandType = System.Data.CommandType.Text;
+
+                
+
+                Micommand.CommandText = "INSERT INTO Ventas ([CodVendedor], [CodProducto]," + "Fecha, Kilos) VALUES (" + vendedor + "," + producto + "," + "´"+FechaVenta +"´"+  "," + kilos + ")";
+
+                Micommand.ExecuteNonQuery();
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+        }
         
     }
 }

@@ -118,6 +118,7 @@
             this.btnCargarDatos.TabIndex = 9;
             this.btnCargarDatos.Text = "Cargar";
             this.btnCargarDatos.UseVisualStyleBackColor = true;
+            this.btnCargarDatos.Click += new System.EventHandler(this.btnCargarDatos_Click);
             // 
             // mtxtb
             // 

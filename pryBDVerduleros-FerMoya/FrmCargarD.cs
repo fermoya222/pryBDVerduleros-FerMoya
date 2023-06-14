@@ -33,5 +33,19 @@ namespace pryBDVerduleros_FerMoya
 
 
         }
+
+        private void btnCargarDatos_Click(object sender, EventArgs e)
+        {
+            if (cmbProducto.SelectedIndex != -1 && cmbProducto.SelectedIndex != -1 && mtxtb.Text != "    ")
+            {
+                
+                objClaseBD.RegistrarVentas(cmbVendedor.SelectedValue.ToString(), cmbProducto.SelectedValue.ToString(), dtmFecha.Value, mtxtb.Text);
+
+            }
+            else
+            {
+                //cargue los datos 
+            }
+        }
     }
 }
